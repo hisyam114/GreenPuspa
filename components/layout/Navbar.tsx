@@ -19,11 +19,8 @@ export function Navbar() {
 
   const links = [
     { href: "/about", label: "Tentang Kami" },
-    { href: "/programs", label: "Program" },
-    { href: "/timeline", label: "Linimasa" },
     { href: "/gallery", label: "Galeri" },
     { href: "/news", label: "Berita" },
-    { href: "/faq", label: "FAQ" },
   ];
 
   const isHome = pathname === "/";

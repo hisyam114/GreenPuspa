@@ -1,62 +1,92 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { Button, buttonVariants } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { buttonVariants } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { AnimatedCounter } from "@/components/ui/animated-counter";
-import { ArrowRight, Leaf, Droplets, Users, BookOpen } from "lucide-react";
-import { motion } from "framer-motion";
+import { Hero } from "@/components/sections/Hero";
+import { getAllPosts } from "@/lib/markdown";
+import { ArrowRight, Leaf, Droplets, Users, BookOpen, Calendar, HelpCircle, Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+export const metadata = {
+  title: "Green Puspa - Kampung Urban Farming RW 06 Utan Kayu Selatan",
+  description: "Mewujudkan lingkungan hijau, sehat, dan produktif melalui semangat gotong royong dan inovasi pertanian perkotaan.",
+};
+
+const timelineEvents = [
+  {
+    year: "2017",
+    title: "Program Dimulai",
+    description: "Inisiatif urban farming berbasis komunitas pertama kali dicanangkan untuk merespon permasalahan banjir dan lingkungan padat di RW 06.",
+  },
+  {
+    year: "2018",
+    title: "Perluasan Penghijauan",
+    description: "Gerakan penghijauan gang mulai masif dilakukan. Warga bergotong royong menata pot tanaman dan membersihkan saluran air.",
+  },
+  {
+    year: "2019",
+    title: "Pengembangan Hidroponik",
+    description: "Instalasi hidroponik mulai diperkenalkan dan dipasang di sepanjang gang, menjadikannya ikon baru RW 06 Utan Kayu Selatan.",
+  },
+  {
+    year: "2020",
+    title: "Ketahanan Pangan Warga",
+    description: "Di masa pandemi, hasil panen dari hidroponik dan akuaponik memberikan manfaat langsung bagi ketahanan pangan warga setempat.",
+  },
+  {
+    year: "2021",
+    title: "Ekspansi Program",
+    description: "Jumlah lubang tanam hidroponik terus bertambah seiring tingginya antusiasme warga untuk ikut mengelola.",
+  },
+  {
+    year: "2022",
+    title: "Penerapan Smart Farming",
+    description: "Pengenalan teknologi pertanian pintar (smart farming) sederhana untuk membantu monitoring nutrisi dan kualitas air pada instalasi komunitas.",
+  },
+  {
+    year: "2023",
+    title: "Pusat Studi Banding",
+    description: "Green Puspa menerima banyak kunjungan dari komunitas lain, institusi pemerintah, dan mahasiswa sebagai percontohan sukses urban farming.",
+  },
+  {
+    year: "2024+",
+    title: "Inovasi Berkelanjutan",
+    description: "Terus mengembangkan inovasi keberlanjutan, ekonomi sirkular, dan memperkuat edukasi lingkungan bagi generasi muda.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Apa itu Green Puspa?",
+    answer: "Green Puspa adalah komunitas urban farming yang berada di RW 06 Utan Kayu Selatan. Kami mengelola lahan sempit di gang-gang perkampungan menjadi area produktif melalui metode hidroponik, akuaponik, dan penghijauan vertikal."
+  },
+  {
+    question: "Apakah Green Puspa terbuka untuk kunjungan umum?",
+    answer: "Ya, kami sangat terbuka untuk kunjungan edukasi, studi banding, maupun penelitian. Namun, karena ini merupakan area permukiman warga, kami mohon agar pengunjung menghubungi kami terlebih dahulu untuk mengatur jadwal."
+  },
+  {
+    question: "Bagaimana sistem pengelolaan hidroponik di Green Puspa?",
+    answer: "Sistem hidroponik dikelola secara gotong royong oleh warga setempat (swadaya). Jadwal penyemaian, pemindahan bibit, hingga panen dikoordinasikan secara bersama-sama oleh para kader lingkungan RW 06."
+  },
+  {
+    question: "Di mana hasil panen sayuran didistribusikan?",
+    answer: "Hasil panen diprioritaskan untuk pemenuhan gizi warga RW 06. Sebagian lainnya dipasarkan ke lingkungan sekitar untuk memutar kas operasional pembelian nutrisi dan bibit selanjutnya."
+  },
+  {
+    question: "Apakah saya bisa belajar bertani hidroponik di sini?",
+    answer: "Tentu bisa! Kami secara rutin mengadakan lokakarya dan pelatihan bagi siapa saja yang tertarik. Anda bisa memantau halaman Berita atau menghubungi kami langsung untuk menanyakan jadwal pelatihan terdekat."
+  }
+];
+
 export default function Home() {
+  const latestNews = getAllPosts().slice(0, 3);
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black/40 z-10" />
-          <Image
-            src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?q=80&w=2070&auto=format&fit=crop"
-            alt="Green Puspa Community"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-        <div className="relative z-20 text-center text-white px-4 max-w-4xl mx-auto">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="font-heading text-4xl md:text-6xl font-bold mb-6"
-          >
-            Green Puspa
-            <span className="block text-2xl md:text-3xl mt-4 font-normal">Kampung Urban Farming RW 06 Utan Kayu Selatan</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-xl mb-8 font-light"
-          >
-            Mewujudkan lingkungan hijau, sehat, dan produktif melalui semangat gotong royong dan inovasi pertanian perkotaan.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <Link href="/about" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-white")}>
-              Tentang Kami
-            </Link>
-            <Link href="/programs" className={cn(buttonVariants({ size: "lg", variant: "outline" }), "bg-white/10 text-white border-white hover:bg-white hover:text-black")}>
-              Jelajahi Program
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+      <Hero />
 
       {/* Statistics Section */}
       <section className="py-16 bg-surface-green border-b border-border/50">
@@ -107,71 +137,242 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Program Highlights */}
-      <section className="py-24 bg-muted/30">
+      {/* Detailed Programs Section */}
+      <section id="programs" className="py-24 bg-muted/30 border-y border-border/50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">Program Unggulan</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">Inisiatif kami berfokus pada keberlanjutan dan pemberdayaan masyarakat.</p>
+          <div className="text-center mb-20">
+            <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4">Program & Inovasi Kerja</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              Inisiatif berkelanjutan kami untuk menghijaukan lingkungan padat kota dan memberdayakan masyarakat.
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="border-none shadow-md hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="w-12 h-12 bg-accent/30 rounded-xl flex items-center justify-center mb-4">
-                  <Leaf className="h-6 w-6 text-primary" />
+
+          <div className="space-y-24 max-w-6xl mx-auto">
+            {/* Hydroponics */}
+            <div className="flex flex-col md:flex-row gap-12 items-center">
+              <div className="md:w-1/2">
+                <h3 className="font-heading text-2xl md:text-3xl font-bold mb-4 flex items-center gap-3">
+                  <Leaf className="text-primary h-7 w-7" /> Hidroponik
+                </h3>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  Program utama Green Puspa yang mengoptimalkan pemanfaatan ruang sempit di gang-gang pemukiman. Lebih dari 1500 lubang tanam hidroponik dipasang dan dipelihara warga secara swadaya.
+                </p>
+                <div className="grid grid-cols-2 gap-4">
+                  <Card className="border-none bg-primary/5">
+                    <CardContent className="p-4 flex flex-col items-center text-center">
+                      <span className="font-bold text-lg text-primary">Sayuran Segar</span>
+                      <span className="text-xs text-muted-foreground mt-1">Selada, Pakcoy, Kangkung</span>
+                    </CardContent>
+                  </Card>
+                  <Card className="border-none bg-primary/5">
+                    <CardContent className="p-4 flex flex-col items-center text-center">
+                      <span className="font-bold text-lg text-primary">Skala Kampung</span>
+                      <span className="text-xs text-muted-foreground mt-1">Rak vertikal di gang pemukiman</span>
+                    </CardContent>
+                  </Card>
                 </div>
-                <CardTitle>Hidroponik</CardTitle>
-                <CardDescription>Pemanfaatan ruang sempit untuk budidaya sayuran sehat.</CardDescription>
-              </CardHeader>
-            </Card>
-            <Card className="border-none shadow-md hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="w-12 h-12 bg-accent/30 rounded-xl flex items-center justify-center mb-4">
-                  <Droplets className="h-6 w-6 text-primary" />
+              </div>
+              <div className="md:w-1/2 w-full h-[320px] relative rounded-2xl overflow-hidden shadow-md">
+                <Image
+                  src="https://images.unsplash.com/photo-1590682680695-43b964a3ae17?q=80&w=1200&auto=format&fit=crop"
+                  alt="Hidroponik Green Puspa"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Aquaponics */}
+            <div className="flex flex-col md:flex-row-reverse gap-12 items-center">
+              <div className="md:w-1/2">
+                <h3 className="font-heading text-2xl md:text-3xl font-bold mb-4 flex items-center gap-3">
+                  <Droplets className="text-secondary h-7 w-7" /> Akuaponik
+                </h3>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  Sistem budidaya ikan terintegrasi dengan tanaman. Air kolam ikan yang kaya nutrisi dialirkan ke media tanam sayuran, menyaring air secara alami sebelum dialirkan kembali ke kolam dalam ekosistem sirkular tertutup.
+                </p>
+                <ul className="space-y-2.5 text-muted-foreground list-disc pl-5 text-sm">
+                  <li>Efisiensi tinggi dalam penggunaan air tanah</li>
+                  <li>Sumber gizi protein (ikan lele/nila) dan vitamin sayur terpadu</li>
+                  <li>Murni organik tanpa tambahan pestisida kimia</li>
+                </ul>
+              </div>
+              <div className="md:w-1/2 w-full h-[320px] relative rounded-2xl overflow-hidden shadow-md">
+                <Image
+                  src="https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?q=80&w=1200&auto=format&fit=crop"
+                  alt="Akuaponik Green Puspa"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Environmental Greening */}
+            <div className="flex flex-col md:flex-row gap-12 items-center">
+              <div className="md:w-1/2">
+                <h3 className="font-heading text-2xl md:text-3xl font-bold mb-4 flex items-center gap-3">
+                  <Heart className="text-primary h-7 w-7" /> Penghijauan Lingkungan
+                </h3>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  Melalui vertical garden dan penghijauan gang, RW 06 berhasil menurunkan suhu mikro lingkungan sekitar dan membersihkan udara perkampungan padat, sekaligus mempererat hubungan sosial warga.
+                </p>
+                <div className="bg-primary/5 p-4 rounded-xl text-primary text-sm font-medium italic">
+                  &quot;Mengubah gang sempit berbeton menjadi koridor hijau yang sejuk dan menenangkan.&quot;
                 </div>
-                <CardTitle>Akuaponik</CardTitle>
-                <CardDescription>Sistem terintegrasi budidaya ikan dan tanaman produktif.</CardDescription>
-              </CardHeader>
-            </Card>
-            <Card className="border-none shadow-md hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="w-12 h-12 bg-accent/30 rounded-xl flex items-center justify-center mb-4">
-                  <BookOpen className="h-6 w-6 text-primary" />
+              </div>
+              <div className="md:w-1/2 w-full h-[320px] relative rounded-2xl overflow-hidden shadow-md">
+                <Image
+                  src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=1200&auto=format&fit=crop"
+                  alt="Penghijauan Green Puspa"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Education */}
+            <div className="flex flex-col md:flex-row-reverse gap-12 items-center">
+              <div className="md:w-1/2">
+                <h3 className="font-heading text-2xl md:text-3xl font-bold mb-4 flex items-center gap-3">
+                  <BookOpen className="text-secondary h-7 w-7" /> Edukasi Lingkungan
+                </h3>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  Kami aktif membagikan ilmu urban farming lewat lokakarya, kunjungan studi banding sekolah/universitas, dan program edukasi lingkungan bagi warga luar kawasan untuk mereplikasi kampung hijau.
+                </p>
+                <div className="grid grid-cols-3 gap-2">
+                  <div className="relative h-20 rounded-lg overflow-hidden">
+                    <Image src="https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?q=80&w=400&auto=format&fit=crop" alt="Edukasi 1" fill className="object-cover" />
+                  </div>
+                  <div className="relative h-20 rounded-lg overflow-hidden">
+                    <Image src="https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?q=80&w=400&auto=format&fit=crop" alt="Edukasi 2" fill className="object-cover" />
+                  </div>
+                  <div className="relative h-20 rounded-lg overflow-hidden">
+                    <Image src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=400&auto=format&fit=crop" alt="Edukasi 3" fill className="object-cover" />
+                  </div>
                 </div>
-                <CardTitle>Edukasi Lingkungan</CardTitle>
-                <CardDescription>Pusat pembelajaran urban farming bagi masyarakat luas.</CardDescription>
-              </CardHeader>
-            </Card>
-            <Card className="border-none shadow-md hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="w-12 h-12 bg-accent/30 rounded-xl flex items-center justify-center mb-4">
-                  <Users className="h-6 w-6 text-primary" />
-                </div>
-                <CardTitle>Ketahanan Pangan</CardTitle>
-                <CardDescription>Memenuhi kebutuhan pangan sehat bagi warga sekitar.</CardDescription>
-              </CardHeader>
-            </Card>
-          </div>
-          <div className="mt-12 text-center">
-            <Link href="/programs" className={buttonVariants()}>Lihat Semua Program</Link>
+              </div>
+              <div className="md:w-1/2 w-full h-[320px] relative rounded-2xl overflow-hidden shadow-md">
+                <Image
+                  src="https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?q=80&w=1200&auto=format&fit=crop"
+                  alt="Edukasi Lingkungan"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Community Impact Preview */}
-      <section className="py-24">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold mb-12">Dampak Sosial & Lingkungan</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-primary/5 p-8 rounded-2xl">
-              <h3 className="font-heading text-2xl font-semibold mb-4 text-primary">Lingkungan Hijau</h3>
-              <p className="text-muted-foreground">Menghidupkan kembali gang-gang sempit menjadi koridor hijau yang menyejukkan, menurunkan suhu mikro, dan memperindah wajah kampung.</p>
-            </div>
-            <div className="bg-secondary/10 p-8 rounded-2xl">
-              <h3 className="font-heading text-2xl font-semibold mb-4 text-primary">Ekonomi Sirkular</h3>
-              <p className="text-muted-foreground">Hasil panen tidak hanya dikonsumsi sendiri, tetapi juga menjadi sumber ekonomi mandiri komunitas untuk keberlanjutan program.</p>
+      {/* Linimasa (Timeline) Section */}
+      <section id="timeline" className="py-24">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center mb-16">
+            <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4">Linimasa Perjalanan</h2>
+            <p className="text-muted-foreground text-lg">
+              Merekam langkah-langkah gotong royong warga RW 06 dalam membangun kemandirian pangan sejak 2017.
+            </p>
+          </div>
+
+          <div className="relative mt-12">
+            {/* Centered vertical line */}
+            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-primary/20 -translate-x-1/2" />
+
+            {timelineEvents.map((event, index) => (
+              <div key={event.year} className="mb-12 relative flex items-center md:justify-between w-full">
+                {/* Timeline dot */}
+                <div className="absolute left-4 md:left-1/2 -translate-x-1/2 bg-primary rounded-full w-12 h-12 flex items-center justify-center border-4 border-background shadow-sm z-10">
+                  <Calendar className="h-5 w-5 text-white" />
+                </div>
+
+                {/* Content Card */}
+                <div className={`pl-14 md:pl-0 w-full md:w-5/12 ${index % 2 === 0 ? "md:mr-auto md:text-right md:pr-12" : "md:ml-auto md:pl-12"}`}>
+                  <div className="bg-card border p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                    <span className="font-bold text-primary text-xl mb-2 block">{event.year}</span>
+                    <h3 className="font-heading text-xl font-bold mb-3">{event.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{event.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Berita (News) Card Section */}
+      <section id="news" className="py-24 bg-muted/30 border-t border-border/50">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4">Berita & Kegiatan Terbaru</h2>
+            <p className="text-muted-foreground text-lg">
+              Ikuti kabar teranyar, inspirasi urban farming, dan agenda gotong royong komunitas kami.
+            </p>
+          </div>
+
+          {/* Grid of news cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {latestNews.map((post) => (
+              <Link key={post.slug} href={`/news/${post.slug}`} className="group block">
+                <Card className="overflow-hidden border-none shadow-md hover:shadow-lg transition-shadow h-full flex flex-col">
+                  <div className="relative h-56 w-full">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <CardContent className="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center gap-4 text-[10px] text-muted-foreground mb-3 uppercase tracking-wider font-semibold">
+                        <span className="bg-primary/10 text-primary px-2.5 py-1 rounded-full">{post.category}</span>
+                        <span className="flex items-center gap-1"><Calendar className="h-3.5 w-3.5" /> {post.date}</span>
+                      </div>
+                      <h3 className="font-heading text-lg font-bold mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                        {post.title}
+                      </h3>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link href="/news" className={buttonVariants({ variant: "outline" })}>
+              Lihat Semua Berita <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className="py-24 border-t border-border/50">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <div className="flex justify-center mb-6">
+            <div className="bg-primary/10 p-3 rounded-full">
+              <HelpCircle className="h-10 w-10 text-primary" />
             </div>
           </div>
+          <div className="text-center mb-12">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">Pertanyaan Populer (FAQ)</h2>
+            <p className="text-muted-foreground">
+              Temukan jawaban cepat atas pertanyaan yang sering diajukan mengenai Green Puspa.
+            </p>
+          </div>
+
+          <Accordion className="w-full space-y-4">
+            {faqs.map((faq, index) => (
+              <AccordionItem key={index} value={`item-${index}`} className="bg-card border px-6 rounded-xl shadow-sm">
+                <AccordionTrigger className="text-left font-heading text-base font-semibold hover:no-underline hover:text-primary py-4">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground text-sm leading-relaxed pb-4">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </section>
 

@@ -4,15 +4,12 @@ import { Leaf, MapPin, Mail, TreePine } from "lucide-react";
 const footerLinks = {
   pages: [
     { href: "/about", label: "Tentang Kami" },
-    { href: "/programs", label: "Program" },
-    { href: "/timeline", label: "Linimasa" },
     { href: "/gallery", label: "Galeri" },
+    { href: "/news", label: "Berita" },
+    { href: "/contact", label: "Kontak" },
   ],
   info: [
-    { href: "/news", label: "Berita" },
     { href: "/smart-farming", label: "Smart Farming" },
-    { href: "/faq", label: "FAQ" },
-    { href: "/contact", label: "Kontak" },
   ],
 };
 
