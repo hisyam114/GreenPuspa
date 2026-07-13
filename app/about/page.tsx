@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Target, Lightbulb, Users } from "lucide-react";
-import opieImage from "@/public/Opie.png";
+import opieImage from "@/public/Opie.jpg";
 
 export const metadata = {
   title: "Tentang Kami | Green Puspa",
@@ -36,9 +36,9 @@ export default function AboutPage() {
           <ScrollReveal direction="up" className="text-center mb-16">
             <h2 className="font-heading text-3xl md:text-4xl font-bold">Awal Mula Perjalanan</h2>
           </ScrollReveal>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Story */}
             <ScrollReveal direction="left" className="lg:col-span-7 space-y-6 text-muted-foreground leading-relaxed text-lg">
               <p>
@@ -98,7 +98,7 @@ export default function AboutPage() {
                 </CardContent>
               </Card>
             </ScrollReveal>
-            
+
             <ScrollReveal direction="right" className="h-full">
               <Card className="border-none shadow-lg h-full">
                 <CardContent className="p-8">
