@@ -60,16 +60,19 @@ export default function TimelinePage() {
 
       <section className="py-24">
         <div className="container mx-auto px-4 max-w-4xl">
-          <div className="relative border-l-4 border-primary/20 ml-6 md:ml-0 md:pl-0">
+          <div className="relative">
+            {/* Centered vertical line */}
+            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-primary/20 -translate-x-1/2" />
+
             {timelineEvents.map((event, index) => (
               <div key={event.year} className="mb-12 relative flex items-center md:justify-between w-full">
                 {/* Timeline dot */}
-                <div className="absolute left-[-32px] md:left-1/2 md:-translate-x-1/2 bg-primary rounded-full w-12 h-12 flex items-center justify-center border-4 border-background shadow-sm">
+                <div className="absolute left-4 md:left-1/2 -translate-x-1/2 bg-primary rounded-full w-12 h-12 flex items-center justify-center border-4 border-background shadow-sm z-10">
                   <Calendar className="h-5 w-5 text-white" />
                 </div>
 
                 {/* Content Card */}
-                <div className={`ml-8 md:ml-0 w-full md:w-5/12 ${index % 2 === 0 ? "md:mr-auto md:text-right md:pr-12" : "md:ml-auto md:pl-12"}`}>
+                <div className={`pl-14 md:pl-0 w-full md:w-5/12 ${index % 2 === 0 ? "md:mr-auto md:text-right md:pr-12" : "md:ml-auto md:pl-12"}`}>
                   <div className="bg-card border p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
                     <span className="font-bold text-primary text-xl mb-2 block">{event.year}</span>
                     <h3 className="font-heading text-2xl font-bold mb-3">{event.title}</h3>
