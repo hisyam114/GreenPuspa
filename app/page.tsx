@@ -265,6 +265,30 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Video Section */}
+      <section className="py-24 bg-surface-green border-b border-border/50 overflow-hidden">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <ScrollReveal direction="up" className="text-center mb-12">
+            <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4">Smart Farming Gang Hijau</h2>
+            <p className="text-muted-foreground text-lg">
+              Saksikan dokumentasi penerapan Smart Farming dan penghijauan di lingkungan Green Puspa RW 06.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal direction="up" delay={0.2} className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-black">
+            <iframe 
+              className="absolute inset-0 w-full h-full"
+              src="https://www.youtube.com/embed/AweWYxlkVNg?si=dVocxB6Dh6GznKN3" 
+              title="Smart Farming Gang Hijau Green Puspa" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerPolicy="strict-origin-when-cross-origin" 
+              allowFullScreen
+            />
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* Linimasa (Timeline) Section */}
       <section id="timeline" className="py-24 overflow-hidden">
         <div className="container mx-auto px-4 max-w-4xl">
