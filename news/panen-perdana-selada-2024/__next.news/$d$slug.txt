@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[39756,["/GreenPuspa/_next/static/chunks/1_98n4os_xusj.js","/GreenPuspa/_next/static/chunks/14mrh2-p_w84d.js","/GreenPuspa/_next/static/chunks/35-tcb8j539fk.js"],"default"]
+3:I[37457,["/GreenPuspa/_next/static/chunks/1_98n4os_xusj.js","/GreenPuspa/_next/static/chunks/14mrh2-p_w84d.js","/GreenPuspa/_next/static/chunks/35-tcb8j539fk.js"],"default"]
+4:[]
+0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"60peeAzzP_ntzdu8F32Kw"}
