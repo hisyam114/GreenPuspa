@@ -30,10 +30,10 @@ export function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-500 ${
+      className={`z-50 w-full transition-all duration-500 ${
         scrolled || !isHome
-          ? "bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm"
-          : "bg-transparent"
+          ? "sticky top-0 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm"
+          : "absolute top-0 left-0 bg-transparent"
       }`}
     >
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
