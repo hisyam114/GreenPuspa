@@ -57,15 +57,30 @@ export default function ContactPage() {
               </div>
 
               <h3 className="font-heading text-xl font-bold mb-4">Media Sosial</h3>
-              <div className="flex gap-4">
-                <a href="#" className="bg-primary/10 px-4 py-2 rounded-full text-primary hover:bg-primary hover:text-white transition-colors font-medium text-sm">
-                  Facebook
+              <div className="flex flex-wrap gap-3">
+                <a 
+                  href="https://www.youtube.com/@greenpuspa" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="bg-primary/10 px-4 py-2 rounded-full text-primary hover:bg-primary hover:text-white transition-colors font-medium text-sm"
+                >
+                  YouTube
                 </a>
-                <a href="#" className="bg-primary/10 px-4 py-2 rounded-full text-primary hover:bg-primary hover:text-white transition-colors font-medium text-sm">
+                <a 
+                  href="https://www.instagram.com/green.puspa06/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="bg-primary/10 px-4 py-2 rounded-full text-primary hover:bg-primary hover:text-white transition-colors font-medium text-sm"
+                >
                   Instagram
                 </a>
-                <a href="#" className="bg-primary/10 px-4 py-2 rounded-full text-primary hover:bg-primary hover:text-white transition-colors font-medium text-sm">
-                  Twitter
+                <a 
+                  href="https://www.tiktok.com/@greenpuspa" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="bg-primary/10 px-4 py-2 rounded-full text-primary hover:bg-primary hover:text-white transition-colors font-medium text-sm"
+                >
+                  TikTok
                 </a>
               </div>
             </div>
