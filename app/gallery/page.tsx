@@ -9,14 +9,14 @@ const categories = ["Semua", "Hidroponik", "Akuaponik", "Kegiatan Komunitas", "P
 
 const galleryImages = [
   { id: 1, src: "https://images.unsplash.com/photo-1590682680695-43b964a3ae17?q=80&w=800&auto=format&fit=crop", category: "Hidroponik", alt: "Instalasi Hidroponik" },
-  { id: 2, src: "https://images.unsplash.com/photo-1533038590840-1cbea6e60b29?q=80&w=800&auto=format&fit=crop", category: "Akuaponik", alt: "Kolam Akuaponik" },
-  { id: 3, src: "https://images.unsplash.com/photo-1592424005826-69168da40125?q=80&w=800&auto=format&fit=crop", category: "Kegiatan Komunitas", alt: "Kerja Bakti" },
+  { id: 2, src: "https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?q=80&w=800&auto=format&fit=crop", category: "Akuaponik", alt: "Kolam Akuaponik" },
+  { id: 3, src: "https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=800&auto=format&fit=crop", category: "Kegiatan Komunitas", alt: "Kerja Bakti" },
   { id: 4, src: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?q=80&w=800&auto=format&fit=crop", category: "Panen", alt: "Panen Sayur" },
   { id: 5, src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&auto=format&fit=crop", category: "Hidroponik", alt: "Bibit Sayuran" },
   { id: 6, src: "https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?q=80&w=800&auto=format&fit=crop", category: "Kunjungan", alt: "Kunjungan Studi" },
   { id: 7, src: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=800&auto=format&fit=crop", category: "Kegiatan Komunitas", alt: "Penghijauan Gang" },
   { id: 8, src: "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?q=80&w=800&auto=format&fit=crop", category: "Kegiatan Komunitas", alt: "Pelatihan Warga" },
-  { id: 9, src: "https://images.unsplash.com/photo-1605296830714-7c02e15dcaf6?q=80&w=800&auto=format&fit=crop", category: "Panen", alt: "Hasil Panen" },
+  { id: 9, src: "https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=800&auto=format&fit=crop", category: "Panen", alt: "Hasil Panen" },
 ];
 
 export default function GalleryPage() {

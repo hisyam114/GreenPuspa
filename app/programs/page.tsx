@@ -69,7 +69,7 @@ export default function ProgramsPage() {
               </ul>
             </div>
             <div className="md:w-1/2 w-full h-[400px] relative rounded-2xl overflow-hidden shadow-xl">
-              <Image src="https://images.unsplash.com/photo-1533038590840-1cbea6e60b29?q=80&w=2000&auto=format&fit=crop" alt="Akuaponik Ekosistem" fill className="object-cover" />
+              <Image src="https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?q=80&w=2000&auto=format&fit=crop" alt="Akuaponik Ekosistem" fill className="object-cover" />
             </div>
           </div>
         </div>

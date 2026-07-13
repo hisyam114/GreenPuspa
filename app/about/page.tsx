@@ -15,7 +15,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-primary/80 mix-blend-multiply z-10" />
           <Image
-            src="https://images.unsplash.com/photo-1592424005826-69168da40125?q=80&w=2070&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2070&auto=format&fit=crop"
             alt="Tentang Green Puspa"
             fill
             className="object-cover"
