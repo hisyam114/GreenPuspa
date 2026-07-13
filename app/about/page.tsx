@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Target, Lightbulb, Users } from "lucide-react";
+import opieImage from "@/public/Opie.png";
 
 export const metadata = {
   title: "Tentang Kami | Green Puspa",
@@ -56,7 +57,7 @@ export default function AboutPage() {
               <div className="w-full max-w-md bg-card border rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="relative h-80 w-full bg-muted">
                   <Image
-                    src="/Opie.png"
+                    src={opieImage}
                     alt="Bapak Zulfikar Kusdarmawan (Opie)"
                     fill
                     className="object-cover"
