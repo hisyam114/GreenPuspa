@@ -168,7 +168,7 @@ export default function Home() {
               <p className="text-muted-foreground">Menghidupkan kembali gang-gang sempit menjadi koridor hijau yang menyejukkan, menurunkan suhu mikro, dan memperindah wajah kampung.</p>
             </div>
             <div className="bg-secondary/10 p-8 rounded-2xl">
-              <h3 className="font-heading text-2xl font-semibold mb-4 text-secondary-foreground">Ekonomi Sirkular</h3>
+              <h3 className="font-heading text-2xl font-semibold mb-4 text-primary">Ekonomi Sirkular</h3>
               <p className="text-muted-foreground">Hasil panen tidak hanya dikonsumsi sendiri, tetapi juga menjadi sumber ekonomi mandiri komunitas untuk keberlanjutan program.</p>
             </div>
           </div>
@@ -183,10 +183,10 @@ export default function Home() {
             Bergabunglah dalam gerakan menghijaukan kota dan menciptakan ketahanan pangan mulai dari pekarangan kita sendiri.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className={cn(buttonVariants({ size: "lg", variant: "secondary" }), "bg-white text-primary hover:bg-gray-100")}>
+            <Link href="/contact" className={cn(buttonVariants({ size: "lg", variant: "outline" }), "bg-white text-primary hover:bg-primary hover:text-white")}>
               Hubungi Kami
             </Link>
-            <Link href="/gallery" className={cn(buttonVariants({ size: "lg", variant: "outline" }), "border-white text-white hover:bg-white/10")}>
+            <Link href="/gallery" className={cn(buttonVariants({ size: "lg", variant: "outline" }), "bg-white text-primary hover:bg-primary hover:text-white")}>
               Lihat Galeri
             </Link>
           </div>
