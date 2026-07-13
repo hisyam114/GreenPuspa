@@ -1,10 +1,11 @@
-import Image from "next/image";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { Hero } from "@/components/sections/Hero";
+import { LazyImage as Image } from "@/components/ui/lazy-image";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { getAllPosts } from "@/lib/markdown";
 import { ArrowRight, Leaf, Droplets, Users, BookOpen, Calendar, HelpCircle, Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -113,18 +114,18 @@ export default function Home() {
       </section>
 
       {/* About Preview */}
-      <section className="py-24">
+      <section className="py-24 overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
+            <ScrollReveal direction="left" className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
               <Image
                 src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2070&auto=format&fit=crop"
                 alt="Warga Green Puspa"
                 fill
                 className="object-cover"
               />
-            </div>
-            <div>
+            </ScrollReveal>
+            <ScrollReveal direction="right">
               <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6 text-foreground">Dari Warga, Untuk Warga, dan Oleh Warga</h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                 Berawal di tahun 2017, warga RW 06 Utan Kayu Selatan berinisiatif mengubah lingkungan padat penduduk menjadi kawasan hijau yang produktif. Kini, Green Puspa menjadi contoh sukses bagaimana semangat gotong royong dapat menghadirkan ketahanan pangan dan lingkungan yang lebih sehat.
@@ -132,25 +133,25 @@ export default function Home() {
               <Link href="/about" className={buttonVariants({ variant: "outline", className: "group" })}>
                 Pelajari Lebih Lanjut <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
       {/* Detailed Programs Section */}
-      <section id="programs" className="py-24 bg-muted/30 border-y border-border/50">
+      <section id="programs" className="py-24 bg-muted/30 border-y border-border/50 overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-20">
+          <ScrollReveal direction="up" className="text-center mb-20">
             <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4">Program & Inovasi Kerja</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
               Inisiatif berkelanjutan kami untuk menghijaukan lingkungan padat kota dan memberdayakan masyarakat.
             </p>
-          </div>
+          </ScrollReveal>
 
           <div className="space-y-24 max-w-6xl mx-auto">
             {/* Hydroponics */}
             <div className="flex flex-col md:flex-row gap-12 items-center">
-              <div className="md:w-1/2">
+              <ScrollReveal direction="left" className="md:w-1/2">
                 <h3 className="font-heading text-2xl md:text-3xl font-bold mb-4 flex items-center gap-3">
                   <Leaf className="text-primary h-7 w-7" /> Hidroponik
                 </h3>
@@ -171,20 +172,20 @@ export default function Home() {
                     </CardContent>
                   </Card>
                 </div>
-              </div>
-              <div className="md:w-1/2 w-full h-[320px] relative rounded-2xl overflow-hidden shadow-md">
+              </ScrollReveal>
+              <ScrollReveal direction="right" className="md:w-1/2 w-full h-[320px] relative rounded-2xl overflow-hidden shadow-md">
                 <Image
                   src="https://images.unsplash.com/photo-1590682680695-43b964a3ae17?q=80&w=1200&auto=format&fit=crop"
                   alt="Hidroponik Green Puspa"
                   fill
                   className="object-cover"
                 />
-              </div>
+              </ScrollReveal>
             </div>
 
             {/* Aquaponics */}
             <div className="flex flex-col md:flex-row-reverse gap-12 items-center">
-              <div className="md:w-1/2">
+              <ScrollReveal direction="right" className="md:w-1/2">
                 <h3 className="font-heading text-2xl md:text-3xl font-bold mb-4 flex items-center gap-3">
                   <Droplets className="text-secondary h-7 w-7" /> Akuaponik
                 </h3>
@@ -196,20 +197,20 @@ export default function Home() {
                   <li>Sumber gizi protein (ikan lele/nila) dan vitamin sayur terpadu</li>
                   <li>Murni organik tanpa tambahan pestisida kimia</li>
                 </ul>
-              </div>
-              <div className="md:w-1/2 w-full h-[320px] relative rounded-2xl overflow-hidden shadow-md">
+              </ScrollReveal>
+              <ScrollReveal direction="left" className="md:w-1/2 w-full h-[320px] relative rounded-2xl overflow-hidden shadow-md">
                 <Image
                   src="https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?q=80&w=1200&auto=format&fit=crop"
                   alt="Akuaponik Green Puspa"
                   fill
                   className="object-cover"
                 />
-              </div>
+              </ScrollReveal>
             </div>
 
             {/* Environmental Greening */}
             <div className="flex flex-col md:flex-row gap-12 items-center">
-              <div className="md:w-1/2">
+              <ScrollReveal direction="left" className="md:w-1/2">
                 <h3 className="font-heading text-2xl md:text-3xl font-bold mb-4 flex items-center gap-3">
                   <Heart className="text-primary h-7 w-7" /> Penghijauan Lingkungan
                 </h3>
@@ -219,20 +220,20 @@ export default function Home() {
                 <div className="bg-primary/5 p-4 rounded-xl text-primary text-sm font-medium italic">
                   &quot;Mengubah gang sempit berbeton menjadi koridor hijau yang sejuk dan menenangkan.&quot;
                 </div>
-              </div>
-              <div className="md:w-1/2 w-full h-[320px] relative rounded-2xl overflow-hidden shadow-md">
+              </ScrollReveal>
+              <ScrollReveal direction="right" className="md:w-1/2 w-full h-[320px] relative rounded-2xl overflow-hidden shadow-md">
                 <Image
                   src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=1200&auto=format&fit=crop"
                   alt="Penghijauan Green Puspa"
                   fill
                   className="object-cover"
                 />
-              </div>
+              </ScrollReveal>
             </div>
 
             {/* Education */}
             <div className="flex flex-col md:flex-row-reverse gap-12 items-center">
-              <div className="md:w-1/2">
+              <ScrollReveal direction="right" className="md:w-1/2">
                 <h3 className="font-heading text-2xl md:text-3xl font-bold mb-4 flex items-center gap-3">
                   <BookOpen className="text-secondary h-7 w-7" /> Edukasi Lingkungan
                 </h3>
@@ -250,29 +251,29 @@ export default function Home() {
                     <Image src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=400&auto=format&fit=crop" alt="Edukasi 3" fill className="object-cover" />
                   </div>
                 </div>
-              </div>
-              <div className="md:w-1/2 w-full h-[320px] relative rounded-2xl overflow-hidden shadow-md">
+              </ScrollReveal>
+              <ScrollReveal direction="left" className="md:w-1/2 w-full h-[320px] relative rounded-2xl overflow-hidden shadow-md">
                 <Image
                   src="https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?q=80&w=1200&auto=format&fit=crop"
                   alt="Edukasi Lingkungan"
                   fill
                   className="object-cover"
                 />
-              </div>
+              </ScrollReveal>
             </div>
           </div>
         </div>
       </section>
 
       {/* Linimasa (Timeline) Section */}
-      <section id="timeline" className="py-24">
+      <section id="timeline" className="py-24 overflow-hidden">
         <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center mb-16">
+          <ScrollReveal direction="up" className="text-center mb-16">
             <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4">Linimasa Perjalanan</h2>
             <p className="text-muted-foreground text-lg">
               Merekam langkah-langkah gotong royong warga RW 06 dalam membangun kemandirian pangan sejak 2017.
             </p>
-          </div>
+          </ScrollReveal>
 
           <div className="relative mt-12">
             {/* Centered vertical line */}
@@ -287,11 +288,13 @@ export default function Home() {
 
                 {/* Content Card */}
                 <div className={`pl-14 md:pl-0 w-full md:w-5/12 ${index % 2 === 0 ? "md:mr-auto md:text-right md:pr-12" : "md:ml-auto md:pl-12"}`}>
-                  <div className="bg-card border p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-                    <span className="font-bold text-primary text-xl mb-2 block">{event.year}</span>
-                    <h3 className="font-heading text-xl font-bold mb-3">{event.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{event.description}</p>
-                  </div>
+                  <ScrollReveal direction={index % 2 === 0 ? "left" : "right"}>
+                    <div className="bg-card border p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                      <span className="font-bold text-primary text-xl mb-2 block">{event.year}</span>
+                      <h3 className="font-heading text-xl font-bold mb-3">{event.title}</h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed">{event.description}</p>
+                    </div>
+                  </ScrollReveal>
                 </div>
               </div>
             ))}
@@ -300,97 +303,103 @@ export default function Home() {
       </section>
 
       {/* Berita (News) Card Section */}
-      <section id="news" className="py-24 bg-muted/30 border-t border-border/50">
+      <section id="news" className="py-24 bg-muted/30 border-t border-border/50 overflow-hidden">
         <div className="container mx-auto px-4 max-w-6xl">
-          <div className="text-center mb-16">
+          <ScrollReveal direction="up" className="text-center mb-16">
             <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4">Berita & Kegiatan Terbaru</h2>
             <p className="text-muted-foreground text-lg">
               Ikuti kabar teranyar, inspirasi urban farming, dan agenda gotong royong komunitas kami.
             </p>
-          </div>
+          </ScrollReveal>
 
           {/* Grid of news cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {latestNews.map((post) => (
-              <Link key={post.slug} href={`/news/${post.slug}`} className="group block">
-                <Card className="overflow-hidden border-none shadow-md hover:shadow-lg transition-shadow h-full flex flex-col">
-                  <div className="relative h-56 w-full">
-                    <Image
-                      src={post.image}
-                      alt={post.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                  <CardContent className="p-6 flex-1 flex flex-col justify-between">
-                    <div>
-                      <div className="flex items-center gap-4 text-[10px] text-muted-foreground mb-3 uppercase tracking-wider font-semibold">
-                        <span className="bg-primary/10 text-primary px-2.5 py-1 rounded-full">{post.category}</span>
-                        <span className="flex items-center gap-1"><Calendar className="h-3.5 w-3.5" /> {post.date}</span>
-                      </div>
-                      <h3 className="font-heading text-lg font-bold mb-2 group-hover:text-primary transition-colors line-clamp-2">
-                        {post.title}
-                      </h3>
+            {latestNews.map((post, index) => (
+              <ScrollReveal key={post.slug} direction="up" delay={index * 0.15}>
+                <Link href={`/news/${post.slug}`} className="group block">
+                  <Card className="overflow-hidden border-none shadow-md hover:shadow-lg transition-shadow h-full flex flex-col">
+                    <div className="relative h-56 w-full">
+                      <Image
+                        src={post.image}
+                        alt={post.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
                     </div>
-                  </CardContent>
-                </Card>
-              </Link>
+                    <CardContent className="p-6 flex-1 flex flex-col justify-between">
+                      <div>
+                        <div className="flex items-center gap-4 text-[10px] text-muted-foreground mb-3 uppercase tracking-wider font-semibold">
+                          <span className="bg-primary/10 text-primary px-2.5 py-1 rounded-full">{post.category}</span>
+                          <span className="flex items-center gap-1"><Calendar className="h-3.5 w-3.5" /> {post.date}</span>
+                        </div>
+                        <h3 className="font-heading text-lg font-bold mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                          {post.title}
+                        </h3>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              </ScrollReveal>
             ))}
           </div>
 
-          <div className="mt-12 text-center">
+          <ScrollReveal direction="up" delay={0.3} className="mt-12 text-center">
             <Link href="/news" className={buttonVariants({ variant: "outline" })}>
               Lihat Semua Berita <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-24 border-t border-border/50">
+      <section id="faq" className="py-24 border-t border-border/50 overflow-hidden">
         <div className="container mx-auto px-4 max-w-3xl">
-          <div className="flex justify-center mb-6">
+          <ScrollReveal direction="up" className="flex justify-center mb-6">
             <div className="bg-primary/10 p-3 rounded-full">
               <HelpCircle className="h-10 w-10 text-primary" />
             </div>
-          </div>
-          <div className="text-center mb-12">
+          </ScrollReveal>
+          <ScrollReveal direction="up" className="text-center mb-12">
             <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">Pertanyaan Populer (FAQ)</h2>
             <p className="text-muted-foreground">
               Temukan jawaban cepat atas pertanyaan yang sering diajukan mengenai Green Puspa.
             </p>
-          </div>
+          </ScrollReveal>
 
-          <Accordion className="w-full space-y-4">
-            {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="bg-card border px-6 rounded-xl shadow-sm">
-                <AccordionTrigger className="text-left font-heading text-base font-semibold hover:no-underline hover:text-primary py-4">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-sm leading-relaxed pb-4">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          <ScrollReveal direction="up" delay={0.2}>
+            <Accordion className="w-full space-y-4">
+              {faqs.map((faq, index) => (
+                <AccordionItem key={index} value={`item-${index}`} className="bg-card border px-6 rounded-xl shadow-sm">
+                  <AccordionTrigger className="text-left font-heading text-base font-semibold hover:no-underline hover:text-primary py-4">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-sm leading-relaxed pb-4">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 bg-primary text-white text-center">
+      <section className="py-24 bg-primary text-white text-center overflow-hidden">
         <div className="container mx-auto px-4">
-          <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6">Mari Mengenal Green Puspa Lebih Dekat</h2>
-          <p className="text-lg md:text-xl opacity-90 mb-10 max-w-2xl mx-auto">
-            Bergabunglah dalam gerakan menghijaukan kota dan menciptakan ketahanan pangan mulai dari pekarangan kita sendiri.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <ScrollReveal direction="up">
+            <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6">Mari Mengenal Green Puspa Lebih Dekat</h2>
+            <p className="text-lg md:text-xl opacity-90 mb-10 max-w-2xl mx-auto">
+              Bergabunglah dalam gerakan menghijaukan kota dan menciptakan ketahanan pangan mulai dari pekarangan kita sendiri.
+            </p>
+          </ScrollReveal>
+          <ScrollReveal direction="up" delay={0.2} className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className={cn(buttonVariants({ size: "lg", variant: "outline" }), "bg-white text-primary hover:bg-primary hover:text-white")}>
               Hubungi Kami
             </Link>
             <Link href="/gallery" className={cn(buttonVariants({ size: "lg", variant: "outline" }), "bg-white text-primary hover:bg-primary hover:text-white")}>
               Lihat Galeri
             </Link>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
     </div>
