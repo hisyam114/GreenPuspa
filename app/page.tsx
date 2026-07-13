@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { ArrowRight, Leaf, Droplets, Users, BookOpen } from "lucide-react";
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 export default function Home() {
   return (
@@ -24,7 +25,7 @@ export default function Home() {
           />
         </div>
         <div className="relative z-20 text-center text-white px-4 max-w-4xl mx-auto">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -33,7 +34,7 @@ export default function Home() {
             Green Puspa
             <span className="block text-2xl md:text-3xl mt-4 font-normal">Kampung Urban Farming RW 06 Utan Kayu Selatan</span>
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -41,16 +42,16 @@ export default function Home() {
           >
             Mewujudkan lingkungan hijau, sehat, dan produktif melalui semangat gotong royong dan inovasi pertanian perkotaan.
           </motion.p>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Link href="/about" className={buttonVariants({ size: "lg", className: "bg-primary hover:bg-primary/90 text-white" })}>
+            <Link href="/about" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-white")}>
               Tentang Kami
             </Link>
-            <Link href="/programs" className={buttonVariants({ size: "lg", variant: "outline", className: "bg-white/10 text-white border-white hover:bg-white hover:text-black" })}>
+            <Link href="/programs" className={cn(buttonVariants({ size: "lg", variant: "outline" }), "bg-white/10 text-white border-white hover:bg-white hover:text-black")}>
               Jelajahi Program
             </Link>
           </motion.div>
@@ -182,10 +183,10 @@ export default function Home() {
             Bergabunglah dalam gerakan menghijaukan kota dan menciptakan ketahanan pangan mulai dari pekarangan kita sendiri.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className={buttonVariants({ size: "lg", variant: "secondary", className: "bg-white text-primary hover:bg-gray-100" })}>
+            <Link href="/contact" className={cn(buttonVariants({ size: "lg", variant: "secondary" }), "bg-white text-primary hover:bg-gray-100")}>
               Hubungi Kami
             </Link>
-            <Link href="/gallery" className={buttonVariants({ size: "lg", variant: "outline", className: "border-white text-white hover:bg-white/10" })}>
+            <Link href="/gallery" className={cn(buttonVariants({ size: "lg", variant: "outline" }), "border-white text-white hover:bg-white/10")}>
               Lihat Galeri
             </Link>
           </div>
