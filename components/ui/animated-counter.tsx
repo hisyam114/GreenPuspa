@@ -1,8 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion, useAnimation, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 
 interface AnimatedCounterProps {
   value: number;
@@ -11,42 +9,54 @@ interface AnimatedCounterProps {
   duration?: number;
 }
 
-export function AnimatedCounter({ value, suffix = "", prefix = "", duration = 2 }: AnimatedCounterProps) {
+export function AnimatedCounter({ value, suffix = "", prefix = "", duration = 1.5 }: AnimatedCounterProps) {
   const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
+  const ref = useRef<HTMLSpanElement>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.05 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (inView) {
-      let start = 0;
+      let startTime: number | null = null;
       const end = value;
-      if (start === end) return;
-      let totalMilSecDur = parseInt(String(duration));
-      if (totalMilSecDur === 0) totalMilSecDur = 2;
-      const incrementTime = (totalMilSecDur / end) * 1000;
+      let animationFrameId: number;
 
-      let timer = setInterval(() => {
-        start += 1;
-        setCount(start);
-        if (start === end) clearInterval(timer);
-      }, incrementTime > 0 ? incrementTime : 10);
-      
-      // Fallback for large numbers
-      if (end > 100) {
-        clearInterval(timer);
-        let startTime: number;
-        const step = (timestamp: number) => {
-          if (!startTime) startTime = timestamp;
-          const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
-          setCount(Math.floor(progress * end));
-          if (progress < 1) {
-            window.requestAnimationFrame(step);
-          } else {
-            setCount(end);
-          }
-        };
-        window.requestAnimationFrame(step);
-      }
+      const step = (timestamp: number) => {
+        if (!startTime) startTime = timestamp;
+        const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
+        setCount(Math.floor(progress * end));
+        
+        if (progress < 1) {
+          animationFrameId = window.requestAnimationFrame(step);
+        } else {
+          setCount(end);
+        }
+      };
+
+      animationFrameId = window.requestAnimationFrame(step);
+
+      return () => {
+        if (animationFrameId) {
+          window.cancelAnimationFrame(animationFrameId);
+        }
+      };
     }
   }, [inView, value, duration]);
 
@@ -56,3 +66,4 @@ export function AnimatedCounter({ value, suffix = "", prefix = "", duration = 2 
     </span>
   );
 }
+
