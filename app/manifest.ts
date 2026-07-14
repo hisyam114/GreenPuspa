@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Green Puspa",
     short_name: "Green Puspa",
-    description: "Kampung Urban Farming RW 06 Utan Kayu Selatan",
+    description: "Kampung Sehat Terpadu RW 06 Utan Kayu Selatan",
     start_url: "/",
     display: "standalone",
     background_color: "#F8FFF8",

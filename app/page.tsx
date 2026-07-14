@@ -11,7 +11,7 @@ import { ArrowRight, Leaf, Droplets, Users, BookOpen, Calendar, HelpCircle, Hear
 import { cn } from "@/lib/utils";
 
 export const metadata = {
-  title: "Green Puspa - Kampung Urban Farming RW 06 Utan Kayu Selatan",
+  title: "Green Puspa - Kampung Sehat Terpadu Green Puspa RW 06 Utan Kayu Selatan",
   description: "Mewujudkan lingkungan hijau, sehat, dan produktif melalui semangat gotong royong dan inovasi pertanian perkotaan.",
 };
 

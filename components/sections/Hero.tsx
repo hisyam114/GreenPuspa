@@ -12,7 +12,7 @@ const slides = [
   {
     image: "https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?q=80&w=2070&auto=format&fit=crop",
     title: "Green Puspa",
-    subtitle: "Kampung Urban Farming RW 06 Utan Kayu Selatan",
+    subtitle: "Kampung Sehat Terpadu Green Puspa RW 06 Utan Kayu Selatan",
     description: "Mewujudkan lingkungan hijau, sehat, dan produktif melalui semangat gotong royong dan inovasi pertanian perkotaan.",
     primaryLink: "/about",
     primaryLabel: "Tentang Kami",
@@ -102,14 +102,14 @@ export function Hero() {
               {slides[current].description}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-              <Link 
-                href={slides[current].primaryLink} 
+              <Link
+                href={slides[current].primaryLink}
                 className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-white min-w-[160px]")}
               >
                 {slides[current].primaryLabel}
               </Link>
-              <Link 
-                href={slides[current].secondaryLink} 
+              <Link
+                href={slides[current].secondaryLink}
                 className={cn(buttonVariants({ size: "lg", variant: "outline" }), "bg-white/10 text-white border-white hover:bg-white hover:text-black min-w-[160px]")}
               >
                 {slides[current].secondaryLabel}

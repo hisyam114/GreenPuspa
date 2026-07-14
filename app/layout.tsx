@@ -17,12 +17,12 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Green Puspa - Kampung Urban Farming RW 06 Utan Kayu Selatan",
+  title: "Green Puspa - Kampung Sehat Terpadu RW 06 Utan Kayu Selatan",
   description: "Mewujudkan lingkungan hijau, sehat, dan produktif melalui semangat gotong royong dan inovasi pertanian perkotaan.",
   keywords: ["green puspa", "petani kota green puspa", "green puspa utan kayu", "urban farming jakarta timur", "hidroponik jakarta timur", "akuaponik jakarta timur", "kampung sehat terpadu", "smart urban farming jakarta", "rw 06 utan kayu selatan", "kelompok tani green puspa"],
   openGraph: {
     title: "Green Puspa",
-    description: "Kampung Urban Farming RW 06 Utan Kayu Selatan",
+    description: "Kampung Sehat Terpadu Green Puspa RW 06 Utan Kayu Selatan",
     url: "https://greenpuspa.org",
     siteName: "Green Puspa",
     images: [
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Green Puspa",
-    description: "Kampung Urban Farming RW 06 Utan Kayu Selatan",
+    description: "Kampung Sehat Terpadu Green Puspa RW 06 Utan Kayu Selatan",
     images: ["/images/og-image.jpg"],
   },
 };

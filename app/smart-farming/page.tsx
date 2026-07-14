@@ -4,7 +4,7 @@ import { Cpu, Activity, Sun, Bell } from "lucide-react";
 
 export const metadata = {
   title: "Smart Urban Farming | Green Puspa",
-  description: "Penerapan konsep smart farming di kampung urban farming Green Puspa.",
+  description: "Penerapan konsep smart farming di kampung sehat terpadu Green Puspa.",
 };
 
 export default function SmartFarmingPage() {
@@ -31,7 +31,7 @@ export default function SmartFarmingPage() {
       <section className="py-20 bg-surface-green border-y border-border/50">
         <div className="container mx-auto px-4">
           <h2 className="font-heading text-3xl md:text-4xl font-bold mb-12 text-center">Penerapan Teknologi Tepat Guna</h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <Card className="border-none shadow-md">
               <CardContent className="p-8 flex flex-col items-center text-center">
@@ -83,7 +83,7 @@ export default function SmartFarmingPage() {
           </div>
         </div>
       </section>
-      
+
       {/* Disclaimer */}
       <section className="py-16">
         <div className="container mx-auto px-4 max-w-3xl text-center">
